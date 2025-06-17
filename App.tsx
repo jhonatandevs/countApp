@@ -9,9 +9,7 @@ export default function App() {
     <View style={[styles.container, { backgroundColor: '#f0f0f0' }]}>
       <Text style={styles.texHuge}>{count}</Text>
       <FAB label={`+1`} onPress={()=>setCount(count+1)} onLongPress={()=>setCount(0)} position='right'/>
-      {/* <TouchableOpacity onPress={() => setCount(val => val - 1)} onLongPress={()=>setCount(0)} style={styles.floatingButtonL}>
-        <Text>-1</Text> 
-      </TouchableOpacity> */}
+      <FAB label={`-1`} onPress={()=>setCount(count-1)} onLongPress={()=>setCount(0)} position='left'/>
       <StatusBar style="dark" />
     </View>
   );

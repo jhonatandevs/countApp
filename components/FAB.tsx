@@ -2,26 +2,30 @@ import React from 'react'
 import { Pressable, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useState } from 'react';
 
-interface propsFAB{
-    label?: string;
-    position?: 'left'|'right';
-    onPress?: () => void;
-    onLongPress?: () => void;
+interface propsFAB {
+  label?: string;
+  position?: 'left' | 'right';
+  onPress?: () => void;
+  onLongPress?: () => void;
 
 }
-export const FAB = ({label, onLongPress,onPress,position='right'}:propsFAB) => {
+export const FAB = ({ label, onLongPress, onPress, position = 'right' }: propsFAB) => {
 
   return (
-     <Pressable  
-     onPress={onPress} 
-     onLongPress={onLongPress} style={[styles.floatingButton,position=='right'?styles.positionRight:styles.positionLeft]}>
-           <Text style={[{color:'#fff'}]}>{label}</Text>
-         </Pressable>
+    <Pressable
+      onPress={onPress}
+      onLongPress={onLongPress} 
+      style={({pressed})=>[styles.floatingButton, 
+      position == 'right' ? styles.positionRight : styles.positionLeft,
+      pressed ? {opacity: 0.7} : {opacity: 1  }  
+      ]}>
+      <Text style={[{ color: '#fff' }]}>{label}</Text>
+    </Pressable>
   )
 }
 const styles = StyleSheet.create({
- 
-   positionRight: {
+
+  positionRight: {
     right: 20,
     backgroundColor: '#65558f',
 
